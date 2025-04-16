@@ -48,12 +48,12 @@ avo = 6.022e23  # Avogadro's number in mol^-1
 
 # Create the main window
 root = tk.Tk()
-root.title("Quantum Yield Calculator")
+root.title("Quantum Yield Calculator v1.0")
 root.geometry("800x550")
 root.resizable(False, False)
 
 try:
-    # If you have a .ico file
+    # Create icon
     root.iconbitmap("phi.ico")
 except tk.TclError:
     # In case the .ico file isn't found
@@ -66,7 +66,7 @@ main_frame.pack(fill="both", expand=True)
 # Create left frame for inputs
 input_frame = ttk.Frame(main_frame, padding="20", width=200)
 input_frame.pack(side="left", fill="both", expand=False)
-input_frame.pack_propagate(False)  # Prevents the frame from shrinking to fit its contents
+input_frame.pack_propagate(False) 
 
 # Create right frame for explanation
 explanation_frame = ttk.LabelFrame(main_frame, text="Estimating Quantum Yield", padding="10")
@@ -80,7 +80,6 @@ explanation_text.pack(fill="both", expand=True)
 
 # Add explanation text
 explanation_text.insert("1.0", "This calculator estimates quantum yield using the derivation originally described in ")
-# Create a hyperlink
 explanation_text.insert("end", "Parker, 1956", "hyperlink1")
 explanation_text.insert("end", " and more clearly explained in ")
 explanation_text.insert("end", "Bader et al., 2019", "hyperlink2")
@@ -104,7 +103,7 @@ explanation_text.tag_bind("hyperlink1", "<Button-1>", open_link(parker_url))
 explanation_text.tag_configure("hyperlink2", foreground="blue", underline=1)
 explanation_text.tag_bind("hyperlink2", "<Button-1>", open_link(bader_url))
 
-# Configure justification for the formulas
+# Configure justification for formulas
 explanation_text.tag_configure("formula_center", justify="center")
 
 # Make the Text widget read-only
